@@ -26,4 +26,9 @@ class Perk < ActiveRecord::Base
     end
     xml += indent + "</company>\n"
   end
+
+  def image_url
+    # assume that nil image_updated_at timestamp implies no image
+    "/images/#{self.id}.jpg" if self.image_updated_at
+  end
 end
