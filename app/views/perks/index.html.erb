@@ -1,0 +1,25 @@
+<h1>Listing perks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @perks.each do |perk| %>
+      <tr>
+        <td><%= link_to 'Show', perk %></td>
+        <td><%= link_to 'Edit', edit_perk_path(perk) %></td>
+        <td><%= link_to 'Destroy', perk, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Perk', new_perk_path %>

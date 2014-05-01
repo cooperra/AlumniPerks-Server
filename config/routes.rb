@@ -1,6 +1,8 @@
 Alumniperks::Application.routes.draw do
   get "perk_api/list_all"
   get "perk_api/list_since"
+
+  resources :perks
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
