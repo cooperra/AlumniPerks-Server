@@ -24,6 +24,13 @@
   <% end %>
 </p>
 
+<p>Category: <% if @perk.category %>
+  <%= @perk.category %>"
+  <% else %>
+  (No category)
+  <% end %>
+</p>
+
 <%# TODO show map? %>
 
 <%= link_to 'Edit', edit_perk_path(@perk) %> |

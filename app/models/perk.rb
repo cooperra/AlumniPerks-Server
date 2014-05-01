@@ -20,7 +20,7 @@ class Perk < ActiveRecord::Base
     if self.website
       xml += indent2 + "<website>#{self.website}</website>\n"
     end
-    xml += indent2 + "<category>none</category>\n" #TODO
+    xml += indent2 + "<category>#{self.category or "none"}</category>\n" #TODO
     if self.coupon
       xml += indent2 + "<coupon>#{self.coupon}</coupon>\n"
     end
@@ -30,5 +30,10 @@ class Perk < ActiveRecord::Base
   def image_url
     # assume that nil image_updated_at timestamp implies no image
     "/images/#{self.id}.jpg" if self.image_updated_at
+  end
+
+  # TODO remove
+  def category
+    nil
   end
 end
