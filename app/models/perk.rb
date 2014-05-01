@@ -1,4 +1,7 @@
 class Perk < ActiveRecord::Base
+  scope :active, -> {where(:is_deleted => false)}
+  scope :since, lambda {|timestamp| where(:updated_at => (timestamp .. Time.now.utc))}
+
   def toXML(indent="")
     indent2 = indent + '    '
     xml = indent + "<company id=\"#{self.id}\">\n"
