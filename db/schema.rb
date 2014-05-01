@@ -14,13 +14,13 @@
 ActiveRecord::Schema.define(version: 20140501031132) do
 
   create_table "perks", force: true do |t|
-    t.string   "company_name"
+    t.string   "company_name",                     null: false
     t.string   "company_address"
     t.string   "company_phone"
-    t.string   "description"
+    t.string   "description",                      null: false
     t.string   "website"
     t.string   "coupon"
-    t.boolean  "is_deleted"
+    t.boolean  "is_deleted",       default: false, null: false
     t.datetime "image_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
