@@ -36,4 +36,9 @@ class Perk < ActiveRecord::Base
   def category
     nil
   end
+
+  def soft_delete
+    self.is_deleted = true
+    self.save
+  end
 end

@@ -2,7 +2,7 @@
 
 <%# TODO sanitize things %>
 
-<h1><%= @perk.company_name or "(No name)" %></h1>
+<h1><%= @perk.company_name or "(No name)" %><% if @perk.is_deleted %> <span style="color: red"><em>(deleted)</em></span><% end %></h1>
 <div><img src="<%= @perk.image_url or '/images/missing.jpg' %>" alt="Perk Image"></div>
 <p>Address: <%= @perk.company_address or "(No address)" %></p>
 <p>Phone: <%= @perk.company_phone or "(No phone number)" %></p>

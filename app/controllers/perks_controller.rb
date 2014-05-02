@@ -3,8 +3,9 @@ class PerksController < ApplicationController
 
   # GET /perks
   # GET /perks.json
+  # Only show perks that haven't been deleted
   def index
-    @perks = Perk.all
+    @perks = Perk.active
   end
 
   # GET /perks/1
@@ -53,8 +54,9 @@ class PerksController < ApplicationController
 
   # DELETE /perks/1
   # DELETE /perks/1.json
+  # Soft delete only
   def destroy
-    @perk.destroy
+    @perk.soft_delete
     respond_to do |format|
       format.html { redirect_to perks_url }
       format.json { head :no_content }
