@@ -11,6 +11,15 @@
     </div>
   <% end %>
 
+  <%= f.text_field :company_name %>
+  <%= f.text_field :company_address %>
+  <%= f.text_field :company_phone %>
+  <%= f.text_area :description, size: "60x12" %>
+  <%= f.text_field :website %>
+  <%= f.text_field :coupon %>
+  <%= f.check_box :is_deleted %>
+  <%# TODO image %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
