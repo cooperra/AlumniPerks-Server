@@ -4,32 +4,51 @@
 
 <h1><%= @perk.company_name or "(No name)" %><% if @perk.is_deleted %> <span style="color: red"><em>(deleted)</em></span><% end %></h1>
 <div><img src="<%= @perk.image_url or '/images/missing.jpg' %>" alt="Perk Image"></div>
-<p>Address: <%= @perk.company_address or "(No address)" %></p>
-<p>Phone: <%= @perk.company_phone or "(No phone number)" %></p>
-<p>Description: <%= @perk.description or "(No description)" %></p>
-
-<p>
-  Website: <% if @perk.website %>
-  <a href="<%= @perk.website %>"><%= @perk.website %></a>
-  <% else %>
-  (No website)
-  <% end %>
-</p>
-
-<p>
-  Coupon: <% if @perk.coupon %>
-  <a href="<%= @perk.coupon %>"><%= @perk.coupon %></a>
-  <% else %>
-  (No coupon)
-  <% end %>
-</p>
-
-<p>Category: <% if @perk.category %>
-  <%= @perk.category %>"
-  <% else %>
-  (No category)
-  <% end %>
-</p>
+<table>
+  <thead>
+    <td></td>
+    <td></td>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Address:</td>
+      <td><%= @perk.company_address or "(No address)" %></td>
+    </tr>
+    <tr>
+      <td>Phone:</td>
+      <td><%= @perk.company_phone or "(No phone number)" %></td></tr>
+    <tr>
+      <td>Description:</td>
+      <td><%= @perk.description or "(No description)" %></td></tr>
+    <tr>
+      <td>Website:</td>
+      <td><% if @perk.website %>
+	<a href="<%= @perk.website %>"><%= @perk.website %></a>
+	<% else %>
+	(No website)
+	<% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>Coupon:</td>
+      <td><% if @perk.coupon %>
+	<a href="<%= @perk.coupon %>"><%= @perk.coupon %></a>
+	<% else %>
+	(No coupon)
+	<% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>Category:</td>
+      <td><% if @perk.category %>
+	<%= @perk.category %>"
+	<% else %>
+	(No category)
+	<% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 <%# TODO show map? %>
 
