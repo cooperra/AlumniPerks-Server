@@ -12,9 +12,17 @@
   <tbody>
     <% @perks.each do |perk| %>
       <tr>
+	<td><img src="<%= perk.image_url or '/images/missing.jpg' %>" alt="Perk Image"></td>
+	<td><strong><%= perk.company_name or "(No name)" %></strong></td>
         <td><%= link_to 'Show', perk %></td>
         <td><%= link_to 'Edit', edit_perk_path(perk) %></td>
-        <td><%= link_to 'Destroy', perk, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+	  <% if perk.is_deleted %>
+	  (Deleted)
+	  <% else %>
+	  <%= link_to 'Delete', perk, method: :delete, data: { confirm: 'Are you sure?' } %>
+	  <% end %>
+	</td>
       </tr>
     <% end %>
   </tbody>
