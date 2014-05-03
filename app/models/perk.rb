@@ -1,3 +1,20 @@
+class UrlValidator < ActiveModel::EachValidator
+  require 'uri'
+
+  def validate_each(record, attribute, value)
+    unless valid_url? value
+      record.errors[attribute] << (options[:message] || "is not a valid URL")
+    end
+  end
+
+  def valid_url?(url)
+    uri = URI.parse(url)
+    uri.kind_of?(URI::HTTP)
+  rescue URI::InvalidURIError
+    false
+  end
+end
+
 class Perk < ActiveRecord::Base
   scope :active, -> {where(:is_deleted => false)}
   scope :since, lambda {|timestamp| where(:updated_at => (timestamp .. Time.now.utc))}
@@ -5,6 +22,7 @@ class Perk < ActiveRecord::Base
   before_save :normalize_blank_strings
 
   validates :company_name, :description, presence: true
+  validates :website, :coupon, url: true, allow_blank: true
 
   def toXML(indent="")
     indent2 = indent + '    '
