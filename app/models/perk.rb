@@ -2,6 +2,10 @@ class Perk < ActiveRecord::Base
   scope :active, -> {where(:is_deleted => false)}
   scope :since, lambda {|timestamp| where(:updated_at => (timestamp .. Time.now.utc))}
 
+  before_save :normalize_blank_strings
+
+  validates :company_name, :description, presence: true
+
   def toXML(indent="")
     indent2 = indent + '    '
     xml = indent + "<company id=\"#{self.id}\">\n"
@@ -40,5 +44,12 @@ class Perk < ActiveRecord::Base
   def soft_delete
     self.is_deleted = true
     self.save
+  end
+
+  # sets blank strings to nil
+  def normalize_blank_strings
+    attributes.each do |column, value|
+      self[column] = nil if value.is_a? String and value.blank?
+    end
   end
 end
