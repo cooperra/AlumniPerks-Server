@@ -11,14 +11,45 @@
     </div>
   <% end %>
 
-  <%= f.text_field :company_name %>
-  <%= f.text_field :company_address %>
-  <%= f.text_field :company_phone %>
-  <%= f.text_area :description, size: "60x12" %>
-  <%= f.text_field :website %>
-  <%= f.text_field :coupon %>
-  <%= f.check_box :is_deleted %>
-  <%# TODO image %>
+  <table>
+    <thead>
+      <td></td>
+      <td></td>
+    </thead>
+    <tbody>
+      <tr>
+	<td>Company name:</td>
+	<td><%= f.text_field :company_name %></td>
+      </tr>
+      <tr>
+	<td>Address:</td>
+	<td><%= f.text_field :company_address %></td></tr>
+      <tr>
+	<td>Phone:</td>
+	<td><%= f.text_field :company_phone %></td></tr>
+      <tr>
+	<td>Description:</td>
+	<td><%= f.text_area :description, size: "60x12" %></td>
+      </tr>
+      <tr>
+	<td>Website:</td>
+	<td><%= f.text_field :website %></td>
+      </tr>
+      <tr>
+	<td>Coupon:</td>
+	<td><%= f.text_field :coupon %></td>
+      </tr>
+      <tr>
+	<td>Category:</td>
+	<td>{TODO}</td>
+      </tr>
+      <tr>
+	<td>Deleted?:</td>
+	<td><%= f.check_box :is_deleted %></td>
+      </tr>
+      <%# TODO image %>
+    </tbody>
+  </table>
 
   <div class="actions">
     <%= f.submit %>
