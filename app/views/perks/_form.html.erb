@@ -45,7 +45,7 @@
       </tr>
       <% if @perk.is_deleted %>
       <tr>
-	<td>Deleted?:</td>
+	<td><span style="color: red">Deleted?:</span></td>
 	<td><%= f.check_box :is_deleted %></td>
       </tr>
       <% end %>
