@@ -43,10 +43,12 @@
 	<td>Category:</td>
 	<td>{TODO}</td>
       </tr>
+      <% if @perk.is_deleted %>
       <tr>
 	<td>Deleted?:</td>
 	<td><%= f.check_box :is_deleted %></td>
       </tr>
+      <% end %>
       <%# TODO image %>
     </tbody>
   </table>
