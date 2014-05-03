@@ -26,25 +26,25 @@ class Perk < ActiveRecord::Base
 
   def toXML(indent="")
     indent2 = indent + '    '
-    xml = indent + "<company id=\"#{self.id}\">\n"
+    xml = indent + "<company id=\"#{ERB::Util.h self.id}\">\n"
     if self.company_name
-      xml += indent2 + "<name>#{self.company_name}</name>\n"
+      xml += indent2 + "<name>#{ERB::Util.h self.company_name}</name>\n"
     end
     if self.company_address
-      xml += indent2 + "<location>#{self.company_address}</location>\n"
+      xml += indent2 + "<location>#{ERB::Util.h self.company_address}</location>\n"
     end
     if self.company_phone
-      xml += indent2 + "<number>#{self.company_phone}</number>\n"
+      xml += indent2 + "<number>#{ERB::Util.h self.company_phone}</number>\n"
     end
     if self.description
-      xml += indent2 + "<discount>#{self.description}</discount>\n"
+      xml += indent2 + "<discount>#{ERB::Util.h self.description}</discount>\n"
     end
     if self.website
-      xml += indent2 + "<website>#{self.website}</website>\n"
+      xml += indent2 + "<website>#{ERB::Util.h self.website}</website>\n"
     end
-    xml += indent2 + "<category>#{self.category or "none"}</category>\n" #TODO
+    xml += indent2 + "<category>#{ERB::Util.h self.category or "none"}</category>\n" #TODO
     if self.coupon
-      xml += indent2 + "<coupon>#{self.coupon}</coupon>\n"
+      xml += indent2 + "<coupon>#{ERB::Util.h self.coupon}</coupon>\n"
     end
     xml += indent + "</company>\n"
   end
