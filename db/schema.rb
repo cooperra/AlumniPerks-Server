@@ -11,19 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140501031132) do
+ActiveRecord::Schema.define(version: 20140507200740) do
 
   create_table "perks", force: true do |t|
-    t.string   "company_name",                     null: false
+    t.string   "company_name",                       null: false
     t.string   "company_address"
     t.string   "company_phone"
-    t.string   "description",                      null: false
+    t.string   "description",                        null: false
     t.string   "website"
     t.string   "coupon"
-    t.boolean  "is_deleted",       default: false, null: false
-    t.datetime "image_updated_at"
+    t.boolean  "is_deleted",         default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
 end

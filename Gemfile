@@ -46,3 +46,6 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Use paperclip for image uploads
+gem "paperclip", "~> 4.1"

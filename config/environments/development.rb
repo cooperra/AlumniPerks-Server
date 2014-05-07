@@ -26,4 +26,9 @@ Alumniperks::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  if ENV['OS'] == "Windows_NT"
+    # Fix imagemagick path
+    ENV['PATH'] = 'C:\Program Files\ImageMagick-6.8.9-Q16' + ";" + ENV['PATH']
+  end
 end

@@ -24,6 +24,14 @@ class Perk < ActiveRecord::Base
   validates :company_name, :description, presence: true
   validates :website, :coupon, url: true, allow_blank: true
 
+  has_attached_file :image, :styles => {
+    :medium => "300x300",
+    :thumb => "100x100"
+  }#, :default_url => "/images/:style/missing.png"
+  # omit default url because we want 404 for API
+
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
   def toXML(indent="")
     indent2 = indent + '    '
     xml = indent + "<company id=\"#{ERB::Util.h self.id}\">\n"
