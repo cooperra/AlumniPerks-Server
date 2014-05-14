@@ -4,7 +4,7 @@ class PerkApiController < ApplicationController
 
   # Returns a list of all perks that haven't been deleted.
   def list_all
-    perk_list_xml = perk_list_to_xml(Perk.active)
+    perk_list_xml = perk_list_to_xml(Perk.active.order('company_name ASC'))
     respond_to do |format|
       format.any do
         headers["Content-Type"] = "application/xml; charset=utf-8"

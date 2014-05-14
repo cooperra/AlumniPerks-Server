@@ -5,7 +5,7 @@ class PerksController < ApplicationController
   # GET /perks.json
   # Only show perks that haven't been deleted
   def index
-    @perks = Perk.active
+    @perks = Perk.active.order('company_name ASC')
   end
 
   # GET /perks/1
