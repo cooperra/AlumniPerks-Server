@@ -4,10 +4,14 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 # Use postgresql as the database for Active Record
-gem 'pg'
+group :production do
+  gem 'pg'
+end
 
 # Also sqlite3 for develoment/testing
-gem 'sqlite3'
+group :development, :test do
+  gem 'sqlite3'
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
