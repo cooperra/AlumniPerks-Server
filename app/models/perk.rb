@@ -62,11 +62,6 @@ class Perk < ActiveRecord::Base
     "/images/#{self.id}.jpg" if self.image_updated_at
   end
 
-  # TODO remove
-  def category
-    nil
-  end
-
   def soft_delete
     self.is_deleted = true
     self.save

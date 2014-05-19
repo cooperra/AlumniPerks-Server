@@ -41,7 +41,7 @@
       </tr>
       <tr>
 	<td>Category:</td>
-	<td>{TODO}</td>
+	<td><%= f.select :category, ['other', 'hotel', 'restaurant', 'car', 'store'] %></td>
       </tr>
       <% if @perk.is_deleted %>
       <tr>
