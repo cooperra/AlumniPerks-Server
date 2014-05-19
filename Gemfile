@@ -53,3 +53,6 @@ end
 
 # Use paperclip for image uploads
 gem "paperclip", "~> 4.1"
+
+# Use devise for Admin authentication
+gem 'devise'

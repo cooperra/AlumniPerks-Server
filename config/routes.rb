@@ -1,4 +1,5 @@
 Alumniperks::Application.routes.draw do
+  devise_for :admins
   get "perk_api/list_all"
   get "perk_api/list_since"
 
