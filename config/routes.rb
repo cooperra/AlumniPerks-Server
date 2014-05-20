@@ -1,4 +1,10 @@
 Alumniperks::Application.routes.draw do
+
+  as :admin do
+    get '/admins/new', to: 'admins#new', as: 'new_admin'
+    post '/admins/new', to: 'admins#create', as: 'create_admin'
+  end
+
   # http://stackoverflow.com/questions/5370164/disabling-devise-registration-for-production-environment-only
   if Rails.env.production?
     devise_for :admins, :controllers => { :registrations => "registrations" }
