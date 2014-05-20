@@ -2,12 +2,12 @@
 # We don't want random internet people to sign up as admins!
 class RegistrationsController < Devise::RegistrationsController
   def new
-    flash[:info] = 'Registration is disabled.'
-    redirect_to root_path
+    flash[:notice] = 'Registration is disabled.'
+    redirect_to admin_session_path
   end
 
   def create
-    flash[:info] = 'Registration is disabled.'
-    redirect_to root_path
+    flash[:notice] = 'Registration is disabled.'
+    redirect_to admin_session_path
   end
 end
