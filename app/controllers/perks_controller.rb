@@ -1,5 +1,6 @@
 class PerksController < ApplicationController
   before_action :set_perk, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_admin!
 
   # GET /perks
   # GET /perks.json

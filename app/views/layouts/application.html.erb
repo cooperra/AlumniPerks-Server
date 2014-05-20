@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<% if admin_signed_in? %><div style='text-align: right;'>Signed in as: <strong><%= current_admin.email %></strong> | <%= link_to 'Change password', edit_admin_registration_path %> | <%= link_to "Sign out", destroy_admin_session_path, method: :delete %></div><% end %>
 <%= yield %>
 
 </body>
