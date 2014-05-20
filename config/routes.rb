@@ -1,5 +1,11 @@
 Alumniperks::Application.routes.draw do
-  devise_for :admins
+  # http://stackoverflow.com/questions/5370164/disabling-devise-registration-for-production-environment-only
+  if Rails.env.production?
+    devise_for :admins, :controllers => { :registrations => "registrations" }
+  else
+    devise_for :admins
+  end
+
   get "perk_api/list_all"
   get "perk_api/list_since"
 
