@@ -3,7 +3,7 @@
 <%# TODO sanitize things %>
 
 <h1><%= @perk.company_name or "(No name)" %><% if @perk.is_deleted %> <span style="color: red"><em>(deleted)</em></span><% end %></h1>
-<div><img src="<%= @perk.image_url or '/images/missing.jpg' %>" alt="Perk Image"></div>
+<div><img src="<%= @perk.image.url(:medium) %>" alt="Perk Image"></div>
 <table>
   <thead>
     <td></td>
