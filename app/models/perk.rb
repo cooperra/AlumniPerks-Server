@@ -36,8 +36,8 @@ class Perk < ActiveRecord::Base
     xml = indent + "<company id=\"#{ERB::Util.h self.id}\">\n"
     xml += indent2 + "<name>#{ERB::Util.h self.company_name}</name>\n"
     xml += indent2 + "<category>#{ERB::Util.h self.category or "none"}</category>\n"
-    xml += indent2 + "<location>#{ERB::Util.h self.company_address}</location>\n"
-    xml += indent2 + "<number>#{ERB::Util.h self.company_phone}</number>\n"
+    xml += indent2 + "<location>#{ERB::Util.h (self.company_address.blank? ? "-" : self.company_address)}</location>\n"
+    xml += indent2 + "<number>#{ERB::Util.h (self.company_phone.blank? ? "-" : self.company_phone)}</number>\n"
     xml += indent2 + "<discount>#{ERB::Util.h self.description}</discount>\n"
     if self.website
       xml += indent2 + "<website>#{ERB::Util.h self.website}</website>\n"
