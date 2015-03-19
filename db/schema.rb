@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140519194013) do
+ActiveRecord::Schema.define(version: 20150319202158) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -28,14 +31,14 @@ ActiveRecord::Schema.define(version: 20140519194013) do
     t.datetime "updated_at"
   end
 
-  add_index "admins", ["email"], name: "index_admins_on_email", unique: true
-  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
+  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
   create_table "perks", force: true do |t|
     t.string   "company_name",                       null: false
     t.string   "company_address"
     t.string   "company_phone"
-    t.string   "description",                        null: false
+    t.text     "description",                        null: false
     t.string   "website"
     t.string   "coupon"
     t.boolean  "is_deleted",         default: false, null: false
